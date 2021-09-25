@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\FileController;
+use App\Http\Controllers\HtmlSnippetController;
+use App\Http\Controllers\LinkController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::resource('files', FileController::class);
+Route::post('files/{file}',[FileController::class, 'update']);
+Route::resource('html_snippets', HtmlSnippetController::class);
+Route::resource('links', LinkController::class);
+
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
