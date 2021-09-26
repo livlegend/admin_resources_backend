@@ -10,5 +10,5 @@ class HtmlSnippet extends Model
 {
     use HasFactory;use SoftDeletes;
     
-    protected $fillable = ['title', 'html_code'];
+    protected $fillable = ['title', 'description', 'html_code'];
 }

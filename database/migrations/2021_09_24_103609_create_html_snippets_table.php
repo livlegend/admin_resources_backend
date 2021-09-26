@@ -16,6 +16,7 @@ class CreateHtmlSnippetsTable extends Migration
         Schema::create('html_snippets', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->text('description')->nullable();
             $table->text('html_code');
             $table->softDeletes();
             $table->timestamps();

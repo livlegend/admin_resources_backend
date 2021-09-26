@@ -13,7 +13,7 @@ class LinkRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,11 @@ class LinkRequest extends FormRequest
      */
     public function rules()
     {
+        $pattern = '/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)/';
+
         return [
-            //
+            'title' => 'required|max:191',
+            'link' => 'required|regex:'.$pattern,
         ];
     }
 }

@@ -27,10 +27,9 @@ class FileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FileRequest $request)
     {
-        return $request;
-        
+       
         $fileName=$this->storeFile($request->file);
 
         if($fileName) {
