@@ -23,7 +23,7 @@ class LinkRequest extends FormRequest
      */
     public function rules()
     {
-        $pattern = '/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)/';
+        $pattern = '/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)/';
 
         return [
             'title' => 'required|max:191',
