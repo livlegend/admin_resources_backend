@@ -59,7 +59,7 @@ class FileController extends Controller
         if($request->file){ 
 
             // if there is a new file
-            return (new FileService())->uploadAndUpdateFile($request,$file);
+            return (new FileService())->uploadAndUpdateFile($request->collect(),$file);
     
         }else{
             // there is no new file
