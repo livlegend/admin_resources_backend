@@ -7,14 +7,14 @@ use App\Models\File;
 
 class FileService
 {
-  
+
     /**
      * Display a listing of the files.
      *
      * @return \Illuminate\Http\Response
      */
     public function getFiles()
-    {   
+    {
         return File::all();
     }
 
@@ -60,7 +60,7 @@ class FileService
             $toSave['file_link']=$fileName;
             return($this->update($toSave, $file));
         }
-       
+
         return 'upload_error';
     }
 
@@ -74,12 +74,12 @@ class FileService
         $fileName = $file->getClientOriginalName();
         $generatedNewName = time() . '.' . $file->getClientOriginalExtension();
         if($file->move($uploadPath, $generatedNewName)){
-            $generatedNewName;
+            return $generatedNewName;
         }
         return false;
     }
 
-    
+
     public function storeFile($data)
     {
         $fileName=$this->storeFileOnServer($data);
@@ -104,6 +104,6 @@ class FileService
         if($commit) return true;
 
         return false;
-    
+
     }
 }
